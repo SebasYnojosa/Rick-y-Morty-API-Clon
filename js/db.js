@@ -94,18 +94,17 @@ function mostrarPersonajes() {
         var personaje = arregloPersonajes[rand];
         personajes.innerHTML += /*html*/ `
             <div class="card">
-                <img class="char-img" src="${personaje.image}" alt="${personaje.name}">
+                <img src="${personaje.image}" alt="${personaje.name}">
                 <div class="info">
-                    <p>${personaje.name}</p>
+                    <p class="char-name">${personaje.name}</p>
                     <p><i class="fa-solid fa-circle-dot"></i> ${personaje.status} - ${personaje.species}</p>
                     <p>&nbsp</p>
-                    <p>Last known location:</p>
+                    <p class="label-char">Last known location:</p>
                     <p>${personaje.location.name}</p>
                 </div>
             </div>
         `;
         var dot = document.getElementsByClassName("fa-circle-dot");
-        console.log(dot);
         if (personaje.status === "Alive") {
             dot[i].style.color = "green";
         } else if (personaje.status === "Dead") {

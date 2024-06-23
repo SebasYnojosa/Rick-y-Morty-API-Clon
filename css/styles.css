@@ -88,6 +88,17 @@ button:hover {
     color: var(--clr-white);
 }
 
+.char-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.label-char {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--clr-light-grey);
+}
+
 .load-button-div {
     display: flex;
     justify-content: center;
