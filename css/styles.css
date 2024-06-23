@@ -72,6 +72,8 @@ button:hover {
 #characters {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem;
 }
 
 .card {
@@ -82,6 +84,10 @@ button:hover {
     font-family: var(--ff-primary);
     display: flex;
     gap: 1rem;
+}
+
+.img-char {
+    border-radius: 5px;
 }
 
 .info {
@@ -125,8 +131,8 @@ button:hover {
         flex-direction: column;
         align-items: left;
     }
-
+    
     .title {
-        font-size: 40px;
+        font-size: 30px;
     }
 }

@@ -94,7 +94,7 @@ function mostrarPersonajes() {
         var personaje = arregloPersonajes[rand];
         personajes.innerHTML += /*html*/ `
             <div class="card">
-                <img src="${personaje.image}" alt="${personaje.name}">
+                <img class="img-char" src="${personaje.image}" alt="${personaje.name}">
                 <div class="info">
                     <p class="char-name">${personaje.name}</p>
                     <p><i class="fa-solid fa-circle-dot"></i> ${personaje.status} - ${personaje.species}</p>
