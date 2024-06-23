@@ -3,7 +3,7 @@ showSlide();
 
 function showSlide () {
     let i;
-    let slides = document.getElementsByClassName("slides");
+    let slides = document.getElementsByClassName("slide");
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }

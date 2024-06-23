@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/721435d5fd.js" crossorigin="anonymous"></script> 
-
-    <!-- JavaScript -->
-     <script src="js/db.js"></script>
+    <script src="https://kit.fontawesome.com/721435d5fd.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="header">
@@ -23,25 +20,26 @@
         <a href="https://rickandmortyapi.com/documentation/" target="_blank"><button>API DOCS</button></a>
       </div>
     </header>
-    <div class="carousel">
-      <h1 class="title">Consuming The Rick and Morty API</h1>
+      
       <div class="slides">
-        <img src="img/rick-and-morty-desktop-1.png" alt="rick-and-morty">
+        <h1 class="title">Consuming The Rick and Morty API</h1>
+        <img class="slide" src="img/rick-and-morty-desktop-1.png" alt="rick-and-morty">
+        <img class="slide" src="img/rick-and-morty-desktop-2.png" alt="rick-and-morty">
+        <img class="slide" src="img/rick-and-morty-desktop-3.png" alt="rick-and-morty">
       </div>
-      <div class="slides">=
-        <img src="img/rick-and-morty-desktop-2.png" alt="rick-and-morty">
-      </div>
-      <div class="slides">
-        <img src="img/rick-and-morty-desktop-3.png" alt="rick-and-morty">
-      </div>
-    </div>
-    <div class="characters">
+    <div id="characters">
 
     </div>
+    <div class="load-button-div">
+      <button id="load-button">LOAD MORE...</button>
+    </div>
+    
     <footer class="footer">
       <i class="fa-solid fa-code"></i> by Sebastián Ynojosa, 2024
     </footer>
     
+    <!-- JavaScript -->
+    <script src="js/db.js"></script>
     <script src="js/carousel.js"></script>
   </body>
 </html>

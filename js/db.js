@@ -1,4 +1,6 @@
 var db;
+var arregloPersonajes = [];
+var load_more = document.getElementById("load-button");
 const URL_API = "https://rickandmortyapi.com/api/character/";
 
 function iniciarDB() {
@@ -16,6 +18,7 @@ function mostrarError(e) {
 function comenzar(e) {
     db = e.target.result;
     console.log("Base de datos abierta");
+    llenarArreglo();
 }
 
 function crearAlmacen(e) {
@@ -64,5 +67,55 @@ async function recogerPersonajesAPI() {
     }
 }
 
+function llenarArreglo() {
+    var transaccion = db.transaction(["Personajes"], "readonly");
+    var almacen = transaccion.objectStore("Personajes");
+
+    var cursor = almacen.openCursor();
+    cursor.addEventListener("success", cursorPersonajes);
+}
+
+function cursorPersonajes(e) {
+    var cursor = e.target.result;
+    if (cursor) {
+        arregloPersonajes.push(cursor.value);
+        cursor.continue();
+    } else {
+        console.log("Personajes recogidos de la base de datos");
+        mostrarPersonajes();
+    }
+}
+
+function mostrarPersonajes() {
+    var personajes = document.getElementById("characters");
+    personajes.innerHTML = "";
+    for (let i = 0; i < 6; i++) {
+        var rand = Math.floor(Math.random() * arregloPersonajes.length);
+        var personaje = arregloPersonajes[rand];
+        personajes.innerHTML += /*html*/ `
+            <div class="card">
+                <img class="char-img" src="${personaje.image}" alt="${personaje.name}">
+                <div class="info">
+                    <p>${personaje.name}</p>
+                    <p><i class="fa-solid fa-circle-dot"></i> ${personaje.status} - ${personaje.species}</p>
+                    <p>&nbsp</p>
+                    <p>Last known location:</p>
+                    <p>${personaje.location.name}</p>
+                </div>
+            </div>
+        `;
+        var dot = document.getElementsByClassName("fa-circle-dot");
+        console.log(dot);
+        if (personaje.status === "Alive") {
+            dot[i].style.color = "green";
+        } else if (personaje.status === "Dead") {
+            dot[i].style.color = "red";
+        } else {
+            dot[i].style.color = "gray";
+        }
+    }
+}
+
+load_more.addEventListener("click", mostrarPersonajes);
 // window.addEventListener("load", recogerPersonajesAPI);
 window.addEventListener("load", iniciarDB);
